@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>icmpmon</title>
+    <link href="style.css" media="all" rel="stylesheet" />
+    <link href="metricsgraphics.css" media="all" rel="stylesheet" />
+    <script src="jquery.js"></script>
+    <script src="d3.v4.min.js"></script>
+    <script src="d3-path.v1.min.js"></script>
+    <script src="d3-shape.v1.min.js"></script>
+    <script src="d3-time.v1.min.js"></script>
+    <script src="d3-time-format.v2.min.js"></script>
+    <script src="metricsgraphics.js"></script>
+    <script src="vue.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <main id="app">
+        <h1>ICMPMON</h1>
+        <noscript>
+            <h2>Java Script is required for this app...</h2>
+        </noscript>
+        <section v-for="peer in peers">
+            <content>
+                <h2><span>{{ peer.Name }}</span><span class="addr" v-if="peer.Address != peer.Name">{{ peer.Address }}</span><span class="right" v-show="peer.AverageResponseTime != undefined && peer.Uptime != undefined"><span>Ø{{ peer.AverageResponseTime }}ms</span><span>{{ peer.Uptime }}%</span></span></h2>
+                <chart :peer="peer" :live="true"></chart>
+                <h3>
+                    <span>Last</span>
+                    <span class="select-style">
+                        <select v-model="peer.history">
+                            <option v-bind:value="-8.64e+7">24 Hours</option>
+                            <option v-bind:value="-3.456e+8">4 Days</option>
+                            <option v-bind:value="-6.048e+8">7 Days</option>
+                            <option v-bind:value="-1.2096e+9">14 Days</option>
+                        </select>
+                        <span></span>
+                    </span>
+                </h3>
+                <chart :peer="peer" :live="false" :start="peer.history"></chart>
+            </content>
+        </section>
+        <footer>
+            <a href="https://github.com/Eun/icmpmon">icmpmon 1.0</a>
+        </footer>
+    </main>
+</body>
+</html>

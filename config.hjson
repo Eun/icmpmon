@@ -1,0 +1,30 @@
+{
+    Peers: [
+        // First IP to monitor
+        8.8.8.8
+
+        // Second IP to monitor, with a name and an different Interval
+        {
+            Address: 8.8.4.4
+            Name: "Google #2"
+            Interval: 1000
+        }
+
+        // Third IP to monitor, with a name and default Interval
+        {
+            Address: 208.67.222.222
+            Name: "OpenDNS #1"
+        }
+
+        // Monitor another IP
+        208.67.220.220
+
+        // Monitor an IPv6
+        2620:0:ccc::2
+    ]
+    // Default Interval
+    Interval: 10000
+
+    // Listen on this Address
+    ListenAddress: ":8000"
+}
