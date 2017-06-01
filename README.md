@@ -1,7 +1,7 @@
 # ICMPMON
 A simple ICMP monitor with web interface.
 
-![](https://raw.githubusercontent.com/Eun/icmpmon/master/screenshot1.png)  
+![](https://raw.githubusercontent.com/Eun/icmpmon/master/screenshot.png)  
 [Demo](https://eun.github.io/icmpmon)
 
 Prebuilt files are in the [Releases](https://github.com/Eun/icmpmon/releases) section.
