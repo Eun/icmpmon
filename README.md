@@ -10,7 +10,7 @@ Prebuilt files are in the [Releases](https://github.com/Eun/icmpmon/releases) se
     icmpmon -c config.hjson
 
 ## Warranty
-This product comes without warrenty in any form.
+This product comes without warranty in any form.
 
 ## Building
 ### Requirements
