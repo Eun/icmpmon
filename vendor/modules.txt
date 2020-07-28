@@ -1,0 +1,33 @@
+# github.com/eapache/queue v1.1.0
+## explicit
+github.com/eapache/queue
+# github.com/hjson/hjson-go v3.0.1+incompatible
+## explicit
+github.com/hjson/hjson-go
+# github.com/jinzhu/gorm v1.9.15
+## explicit
+github.com/jinzhu/gorm
+github.com/jinzhu/gorm/dialects/sqlite
+# github.com/jinzhu/inflection v1.0.0
+github.com/jinzhu/inflection
+# github.com/kevinburke/go-bindata v3.21.0+incompatible
+## explicit
+github.com/kevinburke/go-bindata
+github.com/kevinburke/go-bindata/go-bindata
+# github.com/mattn/go-sqlite3 v1.14.0
+github.com/mattn/go-sqlite3
+# golang.org/x/net v0.0.0-20200707034311-ab3426394381
+## explicit
+golang.org/x/net/bpf
+golang.org/x/net/icmp
+golang.org/x/net/internal/iana
+golang.org/x/net/internal/socket
+golang.org/x/net/ipv4
+golang.org/x/net/ipv6
+golang.org/x/net/websocket
+# golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+# gopkg.in/eapache/channels.v1 v1.1.0
+## explicit
+gopkg.in/eapache/channels.v1

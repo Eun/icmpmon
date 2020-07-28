@@ -1,0 +1,94 @@
+# This is an example goreleaser.yaml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+before:
+  hooks:
+    - go get -u github.com/kevinburke/go-bindata/...
+    - go generate ./...
+
+builds:
+  - 
+    id: darwin
+    env:
+      - CGO_ENABLED=1
+      - CC=o64-clang
+      - CXX=o64-clang++
+    ldflags: -linkmode external -s -extld=o64-clang
+    goos:
+      - darwin
+    goarch:
+      - 386
+      - amd64
+
+  - 
+    id: windows
+    env:
+      - CGO_ENABLED=1
+      - CC=x86_64-w64-mingw32-gcc
+    goos:
+      - windows
+    goarch:
+      - amd64
+
+  - 
+    id: linux
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - linux
+    goarch:
+      - 386
+      - amd64
+
+archives:
+  -
+    name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+    replacements:
+      darwin: darwin
+      linux: linux
+      windows: windows
+      386: i386
+      amd64: x86_64
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - config.hjson
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+nfpms:
+  -
+    id: icmpmon
+    package_name: icmpmon
+
+    builds:
+      - linux
+
+    replacements:
+      amd64: 64-bit
+      386: 32-bit
+      darwin: macOS
+      linux: linux
+
+    homepage: https://github.com/Eun/icmpmon
+    maintainer: Tobias Salzmann <eun@su.am>
+    description: A simple ICMP monitor with web interface.
+
+    license: MIT
+
+    # Formats to be generated.
+    formats:
+      - deb
+      - rpm
+
+    # Package epoch.
+    # Defaults to empty.
+    epoch: 1
+
