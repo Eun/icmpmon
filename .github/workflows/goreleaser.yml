@@ -1,0 +1,24 @@
+name: goreleaser
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+
+      -
+        name: Run GoReleaser
+        uses: "docker://dockercore/golang-cross"
+        with:
+          entrypoint: .github/workflows/entrypoint.sh
+          args: release --rm-dist
+          key: ${{ secrets.YOUR_PRIVATE_KEY }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

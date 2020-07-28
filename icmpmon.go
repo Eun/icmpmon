@@ -33,6 +33,9 @@ import (
 	"gopkg.in/eapache/channels.v1"
 )
 
+//go:generate go-bindata -pkg main -o resources.go index.html app.js config.hjson d3-path.v1.min.js d3-shape.v1.min.js d3-time-format.v2.min.js d3-time.v1.min.js d3.v4.min.js jquery.js metricsgraphics.js vue.min.js metricsgraphics.css style.css
+
+
 const ProtocolICMP = 1
 const ICMPPacketLength = 1500
 
